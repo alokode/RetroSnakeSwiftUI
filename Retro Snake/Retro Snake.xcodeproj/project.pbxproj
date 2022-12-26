@@ -1,0 +1,400 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED908FAD2959F0D8004F5181 /* Retro_SnakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED908FAC2959F0D8004F5181 /* Retro_SnakeApp.swift */; };
+		ED908FAF2959F0D8004F5181 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED908FAE2959F0D8004F5181 /* ContentView.swift */; };
+		ED908FB12959F0D9004F5181 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED908FB02959F0D9004F5181 /* Assets.xcassets */; };
+		ED908FB42959F0D9004F5181 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED908FB32959F0D9004F5181 /* Preview Assets.xcassets */; };
+		ED908FBB2959FE52004F5181 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED908FBA2959FE52004F5181 /* SwiftUIView.swift */; };
+		ED908FBD2959FE6C004F5181 /* SnakePlayGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED908FBC2959FE6C004F5181 /* SnakePlayGround.swift */; };
+		ED908FBF295A01DB004F5181 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED908FBE295A01DB004F5181 /* ButtonView.swift */; };
+		ED908FC4295A061F004F5181 /* Silkscreen-Regular.ttf in Sources */ = {isa = PBXBuildFile; fileRef = ED908FC1295A05BD004F5181 /* Silkscreen-Regular.ttf */; };
+		ED908FC5295A061F004F5181 /* Silkscreen-Bold.ttf in Sources */ = {isa = PBXBuildFile; fileRef = ED908FC2295A05BD004F5181 /* Silkscreen-Bold.ttf */; };
+		ED908FC6295A065C004F5181 /* Silkscreen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED908FC1295A05BD004F5181 /* Silkscreen-Regular.ttf */; };
+		ED908FC7295A065C004F5181 /* Silkscreen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED908FC2295A05BD004F5181 /* Silkscreen-Bold.ttf */; };
+		ED908FCB295A0ED7004F5181 /* feed.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED908FC9295A0ED6004F5181 /* feed.wav */; };
+		ED908FCC295A0ED7004F5181 /* game_over.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED908FCA295A0ED7004F5181 /* game_over.wav */; };
+		ED908FCE295A1164004F5181 /* button_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED908FCD295A1164004F5181 /* button_sound.wav */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ED908FA92959F0D8004F5181 /* Retro Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Retro Snake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED908FAC2959F0D8004F5181 /* Retro_SnakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retro_SnakeApp.swift; sourceTree = "<group>"; };
+		ED908FAE2959F0D8004F5181 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ED908FB02959F0D9004F5181 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ED908FB32959F0D9004F5181 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ED908FBA2959FE52004F5181 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		ED908FBC2959FE6C004F5181 /* SnakePlayGround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakePlayGround.swift; sourceTree = "<group>"; };
+		ED908FBE295A01DB004F5181 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		ED908FC1295A05BD004F5181 /* Silkscreen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Silkscreen-Regular.ttf"; sourceTree = "<group>"; };
+		ED908FC2295A05BD004F5181 /* Silkscreen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Silkscreen-Bold.ttf"; sourceTree = "<group>"; };
+		ED908FC3295A05E5004F5181 /* Retro-Snake-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Retro-Snake-Info.plist"; sourceTree = SOURCE_ROOT; };
+		ED908FC9295A0ED6004F5181 /* feed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = feed.wav; sourceTree = "<group>"; };
+		ED908FCA295A0ED7004F5181 /* game_over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = game_over.wav; sourceTree = "<group>"; };
+		ED908FCD295A1164004F5181 /* button_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button_sound.wav; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED908FA62959F0D8004F5181 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED908FA02959F0D8004F5181 = {
+			isa = PBXGroup;
+			children = (
+				ED908FAB2959F0D8004F5181 /* Retro Snake */,
+				ED908FAA2959F0D8004F5181 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ED908FAA2959F0D8004F5181 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED908FA92959F0D8004F5181 /* Retro Snake.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED908FAB2959F0D8004F5181 /* Retro Snake */ = {
+			isa = PBXGroup;
+			children = (
+				ED908FC8295A0ECB004F5181 /* sound */,
+				ED908FC3295A05E5004F5181 /* Retro-Snake-Info.plist */,
+				ED908FAC2959F0D8004F5181 /* Retro_SnakeApp.swift */,
+				ED908FAE2959F0D8004F5181 /* ContentView.swift */,
+				ED908FBC2959FE6C004F5181 /* SnakePlayGround.swift */,
+				ED908FBA2959FE52004F5181 /* SwiftUIView.swift */,
+				ED908FBE295A01DB004F5181 /* ButtonView.swift */,
+				ED908FC0295A05B0004F5181 /* Font */,
+				ED908FB02959F0D9004F5181 /* Assets.xcassets */,
+				ED908FB22959F0D9004F5181 /* Preview Content */,
+			);
+			path = "Retro Snake";
+			sourceTree = "<group>";
+		};
+		ED908FB22959F0D9004F5181 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				ED908FB32959F0D9004F5181 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ED908FC0295A05B0004F5181 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				ED908FC1295A05BD004F5181 /* Silkscreen-Regular.ttf */,
+				ED908FC2295A05BD004F5181 /* Silkscreen-Bold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		ED908FC8295A0ECB004F5181 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				ED908FC9295A0ED6004F5181 /* feed.wav */,
+				ED908FCD295A1164004F5181 /* button_sound.wav */,
+				ED908FCA295A0ED7004F5181 /* game_over.wav */,
+			);
+			path = sound;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED908FA82959F0D8004F5181 /* Retro Snake */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED908FB72959F0D9004F5181 /* Build configuration list for PBXNativeTarget "Retro Snake" */;
+			buildPhases = (
+				ED908FA52959F0D8004F5181 /* Sources */,
+				ED908FA62959F0D8004F5181 /* Frameworks */,
+				ED908FA72959F0D8004F5181 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Retro Snake";
+			productName = "Retro Snake";
+			productReference = ED908FA92959F0D8004F5181 /* Retro Snake.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED908FA12959F0D8004F5181 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					ED908FA82959F0D8004F5181 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = ED908FA42959F0D8004F5181 /* Build configuration list for PBXProject "Retro Snake" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ED908FA02959F0D8004F5181;
+			productRefGroup = ED908FAA2959F0D8004F5181 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED908FA82959F0D8004F5181 /* Retro Snake */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED908FA72959F0D8004F5181 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED908FCB295A0ED7004F5181 /* feed.wav in Resources */,
+				ED908FC6295A065C004F5181 /* Silkscreen-Regular.ttf in Resources */,
+				ED908FCC295A0ED7004F5181 /* game_over.wav in Resources */,
+				ED908FC7295A065C004F5181 /* Silkscreen-Bold.ttf in Resources */,
+				ED908FB42959F0D9004F5181 /* Preview Assets.xcassets in Resources */,
+				ED908FB12959F0D9004F5181 /* Assets.xcassets in Resources */,
+				ED908FCE295A1164004F5181 /* button_sound.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED908FA52959F0D8004F5181 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED908FC4295A061F004F5181 /* Silkscreen-Regular.ttf in Sources */,
+				ED908FC5295A061F004F5181 /* Silkscreen-Bold.ttf in Sources */,
+				ED908FAF2959F0D8004F5181 /* ContentView.swift in Sources */,
+				ED908FAD2959F0D8004F5181 /* Retro_SnakeApp.swift in Sources */,
+				ED908FBF295A01DB004F5181 /* ButtonView.swift in Sources */,
+				ED908FBB2959FE52004F5181 /* SwiftUIView.swift in Sources */,
+				ED908FBD2959FE6C004F5181 /* SnakePlayGround.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		ED908FB52959F0D9004F5181 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ED908FB62959F0D9004F5181 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED908FB82959F0D9004F5181 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Retro Snake/Preview Content\"";
+				DEVELOPMENT_TEAM = HJQ3MX24MY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Retro-Snake-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alokode.Retro-Snake";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ED908FB92959F0D9004F5181 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Retro Snake/Preview Content\"";
+				DEVELOPMENT_TEAM = HJQ3MX24MY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Retro-Snake-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alokode.Retro-Snake";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED908FA42959F0D8004F5181 /* Build configuration list for PBXProject "Retro Snake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED908FB52959F0D9004F5181 /* Debug */,
+				ED908FB62959F0D9004F5181 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED908FB72959F0D9004F5181 /* Build configuration list for PBXNativeTarget "Retro Snake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED908FB82959F0D9004F5181 /* Debug */,
+				ED908FB92959F0D9004F5181 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED908FA12959F0D8004F5181 /* Project object */;
+}
