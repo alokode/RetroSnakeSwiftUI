@@ -203,7 +203,7 @@ struct ButtonsView: View{
                                 
                                 viewModel.gameState = .pause
                                 
-                            } else if viewModel.gameState == .gameOver {
+                            } else if viewModel.gameState == .gameOver || viewModel.gameState == .initial{
                                 
                                 viewModel.gameState = .reset
                                 
@@ -217,7 +217,7 @@ struct ButtonsView: View{
                             
                         } label: {
                             
-                            Text("\(viewModel.gameState == .gameOver || viewModel.gameState == .pause ? "START": "PAUSE")")
+                            Text("\(viewModel.gameState == .gameOver || viewModel.gameState == .pause || viewModel.gameState == .initial ? "START": "PAUSE")")
                             
                                 .fontWeight(.bold)
                             

@@ -44,6 +44,17 @@ class ViewModel:ObservableObject {
     var feedY:CGFloat {
         feed?.position.y ?? 0
     }
+    
+    var highestScore : Int {
+        get {
+            UserDefaults.standard.integer(forKey: "HIGHEST_SCORE")
+        }
+        
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "HIGHEST_SCORE")
+        }
+    }
+    
     func appendBall(ball:SnakeBodyBlock){
         
         var ballToAppend = ball
@@ -74,7 +85,7 @@ class ViewModel:ObservableObject {
         
         feed = nil
         
-        if snakeBodyArray.count%3 == 0 &&  timerValue >= 0.3{
+        if snakeBodyArray.count%3 == 0 &&  timerValue >= 0.1{ // Increase speed to next level
             
             stopTimer()
             
@@ -85,6 +96,11 @@ class ViewModel:ObservableObject {
         }
         
         score += 10
+        
+        if score > highestScore {
+            highestScore = score
+        }
+            
         
         //move(direction: .Right)
         
@@ -128,8 +144,15 @@ class ViewModel:ObservableObject {
         soundPlayer?.play()
     }
     
+    func showInitialMenu(snakePlayGroundSize:CGSize){
+        self.snakePlayGroundSize = snakePlayGroundSize
+        score = 0
+        gameState = .initial
+    }
+    
     func initiliseAndStartGame(snakePlayGroundSize:CGSize){
         
+        score = 0
         stopTimer()
         
         self.snakePlayGroundSize = snakePlayGroundSize
@@ -297,33 +320,23 @@ class ViewModel:ObservableObject {
             let  headMinX  =  head.x-snakeElementSize/2
             
             let  headMiny  =  head.y-snakeElementSize/2
-            
-            
-            
+      
             let  headMaxX  =  head.x+snakeElementSize/2
             
             let  headMaxy  =  head.y+snakeElementSize/2
-            
-            
-            
+        
             let  feedMinX  =  feedPoint.x-snakeElementSize/2
             
             let  feedMiny  =  feedPoint.y-snakeElementSize/2
-            
-            
-            
+      
             let  feedMaxX  =  feedPoint.x+snakeElementSize/2
             
             let  feedMaxy  =  feedPoint.y+snakeElementSize/2
                     
             let  feedFrame  =  CGRect.init(x: feedMinX, y: feedMiny, width: snakeElementSize, height: snakeElementSize)
             
-            
-            
             let  headFrame  =  CGRect.init(x: headMinX, y: headMiny, width: snakeElementSize, height: snakeElementSize)
-            
-            
-            
+
             var  headPointOne:CGPoint =  .zero
             
             var  headPointTwo:CGPoint =  .zero
@@ -371,11 +384,7 @@ class ViewModel:ObservableObject {
                 isHit = isHit || CGRect.init(x: body.position.x, y: body.position.y, width: snakeElementSize, height: snakeElementSize).contains(headPointOne)  || CGRect.init(x: body.position.x, y: body.position.y, width: snakeElementSize, height: snakeElementSize).contains(headPointTwo) //headFrame.contains(body.position)
                 
             }
-            
-            
-            
-            
-            
+        
             if didCollideBody {
                 print("#ALK Did collide :\(didCollideBody)")
                 gameState = .gameOver
@@ -392,18 +401,6 @@ class ViewModel:ObservableObject {
             
         }
         
-        
-        
-        //}
-        
-        
-        
-        
-        
-        // currentHeadPosition = viewModel.snakeBodyArray.first?.position ?? .zero
-        
-        
-        
     }
     
     func gameOver(){
@@ -412,6 +409,7 @@ class ViewModel:ObservableObject {
     }
     
     func resetGame() {
+        playGameoverSoud()
         initiliseAndStartGame(snakePlayGroundSize: snakePlayGroundSize)
     }
 }

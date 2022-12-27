@@ -7,16 +7,10 @@
 
 import SwiftUI
 
-
-
 struct ContentView: View{
-    
     @ObservedObject private var viewModel = ViewModel()
-    
     var body: some View {
-        
         VStack(alignment:.center,spacing: 0) {
-            
             TitleView()
             SnakePlayGround(viewModel: viewModel)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.40)
@@ -25,12 +19,9 @@ struct ContentView: View{
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.40)
             BottomView()
         }
-        
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .background(.yellow)
-        
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider{

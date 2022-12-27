@@ -7,7 +7,5 @@
 
 import Foundation
 
-
-
 let  snakeElementSize:CGFloat =  10
 let  stepSize:CGFloat =  10

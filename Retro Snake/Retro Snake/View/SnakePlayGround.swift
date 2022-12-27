@@ -25,6 +25,7 @@ struct SnakePlayGround: View{
     
     @ObservedObject var viewModel:ViewModel
     
+    @State var initialTitleOpacity:CGFloat = 1.0
 //    @Binding var  currentDirection: Direction
 //
 //    @Binding var  head: CGPoint
@@ -52,10 +53,12 @@ struct SnakePlayGround: View{
     
     var  body: some View{
         
+        
+        
         GeometryReader{ proxy in
             VStack(alignment:.trailing,spacing: 0) {
                 HStack{
-                    Text("High Score: \(viewModel.score)")
+                    Text("High Score: \(viewModel.highestScore)")
                         .font(.custom("Silkscreen-Bold", size: 10))
                         .foregroundColor(.black)
                     
@@ -91,6 +94,31 @@ struct SnakePlayGround: View{
                             .foregroundColor(.black)
                         
                             .padding(0)
+                        
+                    }else if  viewModel.gameState ==  .initial {
+                        
+                       
+                        VStack {
+                            Image("snake")
+                                .resizable()
+                                .frame(width: 200,height: 200)
+                            Text("PRESS START")
+                                .opacity(initialTitleOpacity)
+                            
+                                .font(.custom("Silkscreen-Bold", size: 30))
+                            
+                                .offset(x: 0, y: 0)
+                            
+                                .foregroundColor(.black)
+                            
+                                .padding(0)
+                                .task {
+                                    withAnimation(.linear(duration: 1).repeatForever(autoreverses: true)) {
+                                        initialTitleOpacity = 0
+                                    }
+                                }
+                        }
+                        
                         
                     }
 
@@ -134,8 +162,11 @@ struct SnakePlayGround: View{
                 
                 .onAppear(perform: {
                     
-                    viewModel.initiliseAndStartGame(snakePlayGroundSize: proxy.size )
+                    viewModel.showInitialMenu(snakePlayGroundSize: proxy.size )
+                    //viewModel.initiliseAndStartGame(snakePlayGroundSize: proxy.size )
                     
+                
+               
 
                     
                 })
@@ -153,7 +184,8 @@ struct SnakePlayGround: View{
                     switch newValue{
                         
                     case .initial:
-                        viewModel.initiliseAndStartGame(snakePlayGroundSize: proxy.size)
+                        break
+                        //viewModel.initiliseAndStartGame(snakePlayGroundSize: proxy.size)
 //                        head =  CGPoint.init(x: 50, y: 50)
 //
 //                        currentDirection =  .Right
