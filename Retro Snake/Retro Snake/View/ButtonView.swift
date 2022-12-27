@@ -17,9 +17,7 @@ import SwiftUI
 
 struct ButtonsView: View{
     
-    @Binding var direction:Direction
-    
-    @Binding var gameState:GameState
+    @ObservedObject var viewModel:ViewModel
     
     var body: some View{
         
@@ -55,9 +53,9 @@ struct ButtonsView: View{
                             
                             print("Image tapped!")
                             
-                            if direction != .Up && direction != .Down{
+                            if viewModel.direction != .Up && viewModel.direction != .Down{
                                 
-                                direction = .Up
+                                viewModel.direction = .Up
                                 
                             }
                             
@@ -95,9 +93,9 @@ struct ButtonsView: View{
                         
                         Button{
                             
-                            if direction != .Left && direction != .Right{
+                            if viewModel.direction != .Left && viewModel.direction != .Right{
                                 
-                                direction = .Left
+                                viewModel.direction = .Left
                                 
                             }
                             
@@ -123,9 +121,9 @@ struct ButtonsView: View{
                         
                         Button{
                             
-                            if direction != .Up && direction != .Down{
+                            if viewModel.direction != .Up && viewModel.direction != .Down{
                                 
-                                direction = .Down
+                                viewModel.direction = .Down
                                 
                             }
                             
@@ -155,9 +153,9 @@ struct ButtonsView: View{
                         
                         Button{
                             
-                            if direction != .Left && direction != .Right{
+                            if viewModel.direction != .Left && viewModel.direction != .Right{
                                 
-                                direction = .Right
+                                viewModel.direction = .Right
                                 
                             }
                             
@@ -201,17 +199,17 @@ struct ButtonsView: View{
                         
                         Button{
                             
-                            if gameState == .onGoing{
+                            if viewModel.gameState == .onGoing{
                                 
-                                gameState = .pause
+                                viewModel.gameState = .pause
                                 
-                            } else if gameState == .gameOver {
+                            } else if viewModel.gameState == .gameOver {
                                 
-                                gameState = .reset
+                                viewModel.gameState = .reset
                                 
-                            } else if gameState == .pause{
+                            } else if viewModel.gameState == .pause{
                                 
-                                gameState = .onGoing
+                                viewModel.gameState = .onGoing
                                 
                             }
                             
@@ -219,7 +217,7 @@ struct ButtonsView: View{
                             
                         } label: {
                             
-                            Text("\(gameState == .gameOver || gameState == .pause ? "START": "PAUSE")")
+                            Text("\(viewModel.gameState == .gameOver || viewModel.gameState == .pause ? "START": "PAUSE")")
                             
                                 .fontWeight(.bold)
                             
@@ -245,7 +243,7 @@ struct ButtonsView: View{
                         
                         Button{
                             
-                            gameState = .reset
+                            viewModel.resetGame()
                             
                         } label: {
                             
@@ -307,7 +305,7 @@ struct ButtonsView_Previews: PreviewProvider{
         
         Group{
             
-            ButtonsView(direction: $direct, gameState: $gameState)
+            ButtonsView(viewModel: ViewModel())
             
         }
         

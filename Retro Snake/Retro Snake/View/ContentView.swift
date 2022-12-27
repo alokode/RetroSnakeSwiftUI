@@ -9,109 +9,37 @@ import SwiftUI
 
 
 
-enum Direction{
-    
-    case Left,Right,Up,Down
-    
-}
-
-enum GameState{
-    
-    case initial,gameOver,onGoing,pause,reset
-    
-}
-
-
-
-let   screenBackgroundColor =  Color.init(red: 164/255, green: 179/255, blue: 171/255)
-
-let  buttonMainBackgroundColor:Color =  .black
-
 struct ContentView: View{
     
-    @State var direction:Direction =  .Right
-    
-    @State var head:CGPoint
-    
-    @State var gameState:GameState
+    @ObservedObject private var viewModel = ViewModel()
     
     var body: some View {
         
         VStack(alignment:.center,spacing: 0) {
             
             TitleView()
-        
-            SnakePlayGround(currentDirection: $direction,head:$head,gameState: $gameState)
+            SnakePlayGround(viewModel: viewModel)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.40)
-            
-            
-            ButtonsView(direction: $direction,gameState:$gameState)
-                .background(buttonMainBackgroundColor)
+            ButtonsView(viewModel: viewModel)
+                .background(Color.buttonMainBackgroundColor)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.40)
-            
-            
-            
             BottomView()
         }
         
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        
         .background(.yellow)
         
     }
     
 }
 
-
-
-
-
-struct Ball:Hashable{
-    
-    
-    
-    func hash(into hasher: inout Hasher) {
-        
-        hasher.combine(position.x/position.y)
-        
-        hasher.combine(color)
-        
-    }
-    
-    
-    
-    
-    
-    var color:Color
-    
-    var index:Int
-    
-    
-    
-    var position:CGPoint
-    
-    
-    
-    static func getInitialArray(headPoint:CGPoint) -> [Ball] {
-        
-        var ball  =  Ball.init(color: .red, index: 0, position: headPoint)
-        
-        return[ball]
-        
-    }
-    
-}
-
-
-
 struct ContentView_Previews: PreviewProvider{
     
     static var previews: some View{
         
-        ContentView(head: .zero, gameState:.onGoing)
+        ContentView()
         
     }
-    
 }
 
 
@@ -159,7 +87,7 @@ struct TitleView: View {
         
         .frame(width: UIScreen.main.bounds.width, height: 70, alignment: .center)
         
-        .background(buttonMainBackgroundColor)
+        .background(Color.buttonMainBackgroundColor)
     }
 }
 

@@ -21,6 +21,10 @@
 		ED908FCB295A0ED7004F5181 /* feed.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED908FC9295A0ED6004F5181 /* feed.wav */; };
 		ED908FCC295A0ED7004F5181 /* game_over.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED908FCA295A0ED7004F5181 /* game_over.wav */; };
 		ED908FCE295A1164004F5181 /* button_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED908FCD295A1164004F5181 /* button_sound.wav */; };
+		ED908FD0295B34BD004F5181 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED908FCF295B34BD004F5181 /* ViewModel.swift */; };
+		ED908FD5295B366F004F5181 /* SnakeBodyBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED908FD4295B366F004F5181 /* SnakeBodyBlock.swift */; };
+		ED908FD8295B36D6004F5181 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED908FD7295B36D6004F5181 /* AppConstant.swift */; };
+		ED908FDC295B3700004F5181 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED908FDB295B3700004F5181 /* Color+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		ED908FC9295A0ED6004F5181 /* feed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = feed.wav; sourceTree = "<group>"; };
 		ED908FCA295A0ED7004F5181 /* game_over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = game_over.wav; sourceTree = "<group>"; };
 		ED908FCD295A1164004F5181 /* button_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button_sound.wav; sourceTree = "<group>"; };
+		ED908FCF295B34BD004F5181 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		ED908FD4295B366F004F5181 /* SnakeBodyBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeBodyBlock.swift; sourceTree = "<group>"; };
+		ED908FD7295B36D6004F5181 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
+		ED908FDB295B3700004F5181 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,13 +78,13 @@
 		ED908FAB2959F0D8004F5181 /* Retro Snake */ = {
 			isa = PBXGroup;
 			children = (
+				ED908FDA295B36F3004F5181 /* Extensions */,
+				ED908FD6295B36C5004F5181 /* Constants */,
+				ED908FD3295B360F004F5181 /* Model */,
 				ED908FC8295A0ECB004F5181 /* sound */,
 				ED908FC3295A05E5004F5181 /* Retro-Snake-Info.plist */,
-				ED908FAC2959F0D8004F5181 /* Retro_SnakeApp.swift */,
-				ED908FAE2959F0D8004F5181 /* ContentView.swift */,
-				ED908FBC2959FE6C004F5181 /* SnakePlayGround.swift */,
-				ED908FBA2959FE52004F5181 /* SwiftUIView.swift */,
-				ED908FBE295A01DB004F5181 /* ButtonView.swift */,
+				ED908FD2295B3606004F5181 /* View */,
+				ED908FD1295B35F6004F5181 /* ViewModel */,
 				ED908FC0295A05B0004F5181 /* Font */,
 				ED908FB02959F0D9004F5181 /* Assets.xcassets */,
 				ED908FB22959F0D9004F5181 /* Preview Content */,
@@ -109,6 +117,50 @@
 				ED908FCA295A0ED7004F5181 /* game_over.wav */,
 			);
 			path = sound;
+			sourceTree = "<group>";
+		};
+		ED908FD1295B35F6004F5181 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ED908FCF295B34BD004F5181 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ED908FD2295B3606004F5181 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED908FAC2959F0D8004F5181 /* Retro_SnakeApp.swift */,
+				ED908FAE2959F0D8004F5181 /* ContentView.swift */,
+				ED908FBC2959FE6C004F5181 /* SnakePlayGround.swift */,
+				ED908FBA2959FE52004F5181 /* SwiftUIView.swift */,
+				ED908FBE295A01DB004F5181 /* ButtonView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED908FD3295B360F004F5181 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED908FD4295B366F004F5181 /* SnakeBodyBlock.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED908FD6295B36C5004F5181 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				ED908FD7295B36D6004F5181 /* AppConstant.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		ED908FDA295B36F3004F5181 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED908FDB295B3700004F5181 /* Color+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,11 +239,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED908FC4295A061F004F5181 /* Silkscreen-Regular.ttf in Sources */,
+				ED908FD8295B36D6004F5181 /* AppConstant.swift in Sources */,
 				ED908FC5295A061F004F5181 /* Silkscreen-Bold.ttf in Sources */,
 				ED908FAF2959F0D8004F5181 /* ContentView.swift in Sources */,
 				ED908FAD2959F0D8004F5181 /* Retro_SnakeApp.swift in Sources */,
 				ED908FBF295A01DB004F5181 /* ButtonView.swift in Sources */,
 				ED908FBB2959FE52004F5181 /* SwiftUIView.swift in Sources */,
+				ED908FD5295B366F004F5181 /* SnakeBodyBlock.swift in Sources */,
+				ED908FD0295B34BD004F5181 /* ViewModel.swift in Sources */,
+				ED908FDC295B3700004F5181 /* Color+Extension.swift in Sources */,
 				ED908FBD2959FE6C004F5181 /* SnakePlayGround.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

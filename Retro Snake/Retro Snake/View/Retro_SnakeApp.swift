@@ -11,7 +11,7 @@ import SwiftUI
 struct Retro_SnakeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(head: .zero, gameState: .onGoing)
+            ContentView()
         }
     }
 }
