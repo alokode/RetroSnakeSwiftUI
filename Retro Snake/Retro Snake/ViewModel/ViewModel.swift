@@ -29,6 +29,7 @@ class ViewModel:ObservableObject {
     private var soundPlayer:AVAudioPlayer? = nil
     var  timeRemaining: Int =  0
     private var  timerValue =  0.6
+    private var  previousTimerValue =  0.6
     private var timer :Timer  = Timer()
     var  snakePlayGroundSize: CGSize =  .zero
     var  score: Int =  0
@@ -90,6 +91,7 @@ class ViewModel:ObservableObject {
             stopTimer()
             
             timerValue -= 0.1
+            previousTimerValue = timerValue
             
             startTimer()
             
@@ -122,6 +124,47 @@ class ViewModel:ObservableObject {
         
     }
     
+    func onButtonHoldSpeedIncrease(){
+        previousTimerValue = timerValue
+        timerValue = timerValue - timerValue * 0.80
+        startTimer()
+    }
+    
+    func onButtonHoldRevertSpeed(){
+        timerValue = previousTimerValue
+        startTimer()
+    }
+    
+    
+    func updateDirectionIfNeeded(directionToUpdate:Direction) {
+        switch directionToUpdate {
+        case .Up:
+            if direction != .Up && direction != .Down{
+               direction = .Up
+            }
+        case .Left:
+            if direction != .Left && direction != .Right{
+                
+                direction = .Left
+                
+            }
+        case .Right:
+            if direction != .Left && direction != .Right{
+                
+                direction = .Right
+                
+            }
+        case .Down:
+            if direction != .Up && direction != .Down{
+                
+                direction = .Down
+                
+            }
+            
+            break;
+        }
+        
+    }
     
     
     
@@ -153,11 +196,11 @@ class ViewModel:ObservableObject {
     func initiliseAndStartGame(snakePlayGroundSize:CGSize){
         
         score = 0
+        timerValue = 0.6
         stopTimer()
-        
+        gameState = .onGoing
         self.snakePlayGroundSize = snakePlayGroundSize
         head = CGPoint.init(x: snakePlayGroundSize.width/2, y:snakePlayGroundSize.height/2)
-       // currentHeadPosition =  CGPoint.init(x: proxy.size.width/2, y: proxy.size.height/2)
         snakeBodyArray =  SnakeBodyBlock.getInitialArray(headPoint: head)
         
         startTimer()
@@ -234,8 +277,8 @@ class ViewModel:ObservableObject {
     
     func stopTimer() {
         timer.invalidate()
-        feed = nil
     }
+    
   
     func dropFeed(){
         
@@ -411,6 +454,25 @@ class ViewModel:ObservableObject {
     func resetGame() {
         playGameoverSoud()
         initiliseAndStartGame(snakePlayGroundSize: snakePlayGroundSize)
+    }
+    
+    func startPauseGame() {
+        if gameState == .onGoing{
+            
+            gameState = .pause
+            stopTimer()
+            
+            
+        } else if gameState == .gameOver || gameState == .initial{
+        
+            resetGame()
+            
+            
+        } else if gameState == .pause{
+            gameState = .onGoing
+            startTimer()
+            
+        }
     }
 }
 

@@ -18,6 +18,7 @@ import SwiftUI
 struct ButtonsView: View{
     
     @ObservedObject var viewModel:ViewModel
+    @State private var isHolding = false
     
     var body: some View{
         
@@ -49,145 +50,46 @@ struct ButtonsView: View{
                         
                         
                         
-                        Button{
-                            
-                            print("Image tapped!")
-                            
-                            if viewModel.direction != .Up && viewModel.direction != .Down{
-                                
-                                viewModel.direction = .Up
-                                
-                            }
-                            
-                            
-                            
-                        } label: {
-                            
-                            Image("up-arrow")
-                            
-                               // .renderingMode(.template)
-                            
-                                .resizable()
-                            
-                                .frame(width: buttonSize, height: buttonSize, alignment: .center)
-                            
-                            
-                            
-                                .rotationEffect(Angle.init(degrees: -buttonRottationAngle))
-                            
-                                .foregroundColor(.yellow)
-                            
-                            
-                            
-                        }
-                        
-                        
-                        
+                        GameControllButton(
+                            buttonSize: buttonSize,
+                            direction: .Up,
+                            viewModel: viewModel
+                        )
                         .offset(x: 0, y: -radius/4)
                         
                         
                         
                         
                         
-                        
-                        
-                        Button{
-                            
-                            if viewModel.direction != .Left && viewModel.direction != .Right{
-                                
-                                viewModel.direction = .Left
-                                
-                            }
-                            
-                            
-                            
-                        } label: {
-                            
-                            Image("up-arrow")
-                            
-                                //.renderingMode(.template)
-                            
-                                .resizable()
-                            
-                                .frame(width: buttonSize, height: buttonSize, alignment: .center)
-                            
-                                .rotationEffect(Angle.degrees(270-buttonRottationAngle))
-                            
-                                .foregroundColor(.yellow)
-                            
-                        }
-                        
+                        GameControllButton(
+                            buttonSize: buttonSize,
+                            direction: .Left,
+                            viewModel: viewModel
+                        )
                         .offset(x: -radius/4, y: 0)//Left
                         
-                        Button{
-                            
-                            if viewModel.direction != .Up && viewModel.direction != .Down{
-                                
-                                viewModel.direction = .Down
-                                
-                            }
-                            
-                            
-                            
-                        } label: {
-                            
-                            Image("up-arrow")
-                            
-                               // .renderingMode(.template)
-                            
-                                .resizable()
-                            
-                                .frame(width: buttonSize, height: buttonSize, alignment: .center)
-                            
-                            
-                            
-                                .rotationEffect(Angle.degrees(180-buttonRottationAngle))
-                            
-                                .foregroundColor(.yellow)
-                            
-                        }
-                        
+                        GameControllButton(
+                            buttonSize: buttonSize,
+                            direction: .Down,
+                            viewModel: viewModel
+                        )
                         .offset(x: 0, y: radius/4)//Down
                         
                         
                         
-                        Button{
-                            
-                            if viewModel.direction != .Left && viewModel.direction != .Right{
-                                
-                                viewModel.direction = .Right
-                                
-                            }
-                            
-                            
-                            
-                        } label: {
-                            
-                            Image("up-arrow")
-                            
-                                //.renderingMode(.template)
-                            
-                                .resizable()
-                            
-                                .frame(width: buttonSize, height: buttonSize, alignment: .center)
-                            
-                                .rotationEffect(Angle.degrees(90-buttonRottationAngle))
-                            
-                                .foregroundColor(.yellow)
-                            
-                        }
-                        
+                       
+                        GameControllButton(
+                            buttonSize: buttonSize,
+                            direction: .Right,
+                            viewModel: viewModel
+                        )
                         .offset(x: radius/4, y: 0) //Right
                         
+
                         
-                        
-                        
-                        
-                        
-                        
-                    }.offset(x: buttonSize+30, y: buttonSize/2)
+                    }.offset(x: buttonSize+50, y: buttonSize/2)
                     
-                        .rotationEffect(Angle.init(degrees: buttonRottationAngle))
+                       // .rotationEffect(Angle.init(degrees: buttonRottationAngle))
                     
                     
                     
@@ -196,22 +98,9 @@ struct ButtonsView: View{
                     
                     
                     VStack(alignment:.leading,spacing: 0) {
-                        
                         Button{
                             
-                            if viewModel.gameState == .onGoing{
-                                
-                                viewModel.gameState = .pause
-                                
-                            } else if viewModel.gameState == .gameOver || viewModel.gameState == .initial{
-                                
-                                viewModel.gameState = .reset
-                                
-                            } else if viewModel.gameState == .pause{
-                                
-                                viewModel.gameState = .onGoing
-                                
-                            }
+                            viewModel.startPauseGame()
                             
                             // gameState = (gameState == .onGoing) ? .pause : .onGoing
                             
@@ -288,6 +177,78 @@ struct ButtonsView: View{
         
         
     }
+    
+}
+
+struct GameControllButton : View{
+   
+    var buttonSize:CGFloat = .zero
+    var direction:Direction!
+    var viewModel:ViewModel!
+    private var buttonRottationAngle:CGFloat = 0
+    
+    init(buttonSize: CGFloat, direction: Direction!, viewModel: ViewModel!) {
+        self.buttonSize = buttonSize
+        self.direction = direction
+        self.viewModel = viewModel
+        switch direction {
+        case .Left:
+            buttonRottationAngle = 270
+        case .Right:
+            buttonRottationAngle = 90
+        case .Up:
+            buttonRottationAngle = 0
+        case .Down:
+            buttonRottationAngle = 180
+        case .none:
+            break;
+        }
+    }
+    
+    var body : some View {
+        
+        return Button {
+
+            viewModel.updateDirectionIfNeeded(directionToUpdate: direction)
+            
+            
+        } label: {
+           
+            
+            Image("up-arrow")
+            
+               // .renderingMode(.template)
+            
+                .resizable()
+            
+                .frame(width: buttonSize, height: buttonSize, alignment: .center)
+            
+                .rotationEffect(Angle.init(degrees: buttonRottationAngle))
+            
+                .foregroundColor(.yellow)
+            
+            
+            
+        }
+        
+        .simultaneousGesture(
+            LongPressGesture(minimumDuration: 0.5)
+                .onEnded { _ in
+                    viewModel.updateDirectionIfNeeded(directionToUpdate: direction)
+                    viewModel.onButtonHoldSpeedIncrease()
+                }
+        )
+        .highPriorityGesture(
+            DragGesture(minimumDistance: 0)
+                .onEnded { _ in
+                    viewModel.updateDirectionIfNeeded(directionToUpdate: direction)
+                    viewModel.onButtonHoldRevertSpeed()
+                }
+        )
+
+        
+    }
+    
     
 }
 
